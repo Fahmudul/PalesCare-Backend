@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient, UserStatus } from "@prisma/client";
 import { ADMIN_SEARCHABLE_FIELDS } from "./Admin.constants";
 import { StatusCodes } from "http-status-codes";
 import { CustomError } from "../../Error/CustomError";
@@ -29,6 +29,9 @@ const getAllAdminFromDB = async (query: any, options: any) => {
       })),
     });
   }
+  orConditions.push({
+    isDeleted: false,
+  });
   const whereCondition: Prisma.AdminWhereInput = { AND: orConditions };
   console.dir(whereCondition, { depth: "infinity" });
   const result = await prisma.admin.findMany({
@@ -51,6 +54,7 @@ const getSingleAdminFromDB = async (id: string) => {
   const result = await prisma.admin.findUnique({
     where: {
       id,
+      isDeleted: false,
     },
   });
   return result;
@@ -62,6 +66,7 @@ const updateSingleAdminFromDB = async (
   const isExists = await prisma.admin.findUnique({
     where: {
       id,
+      isDeleted: false,
     },
   });
   if (!isExists) {
@@ -93,7 +98,7 @@ const deleteSingleAdminFromDB = async (id: string) => {
       },
     });
 
-    const deletedUser = await transactionClient.user.delete({
+    await transactionClient.user.delete({
       where: {
         email: deletedAdmin.email,
       },
@@ -101,11 +106,45 @@ const deleteSingleAdminFromDB = async (id: string) => {
     return deletedAdmin;
   });
 
-  return;
+  return result;
+};
+const softDeleteAdminFromDB = async (id: string) => {
+  const isExists = await prisma.admin.findUnique({
+    where: {
+      id,
+    },
+  });
+  if (!isExists) {
+    throw new CustomError(StatusCodes.NOT_FOUND, "Admin not found");
+  }
+
+  const result = prisma.$transaction(async (transactionClient) => {
+    const deletedAdmin = await transactionClient.admin.update({
+      where: {
+        id,
+      },
+      data: {
+        isDeleted: true,
+      },
+    });
+
+    await transactionClient.user.update({
+      where: {
+        email: deletedAdmin.email,
+      },
+      data: {
+        status: UserStatus.DELETED,
+      },
+    });
+    return deletedAdmin;
+  });
+
+  return result;
 };
 export const AdminServices = {
   getAllAdminFromDB,
   getSingleAdminFromDB,
   updateSingleAdminFromDB,
   deleteSingleAdminFromDB,
+  softDeleteAdminFromDB,
 };

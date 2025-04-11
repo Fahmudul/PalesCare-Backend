@@ -22,7 +22,8 @@ enum UserRole {
 
 enum UserStatus {
   ACTIVE
-  INACTIVE
+  BLOCKED
+  DELETED
 }
 
 model User {
@@ -46,7 +47,7 @@ model Admin {
   profilePhoto  String?
   contactNumber String
   isDeleted     Boolean  @default(false)
-  createdAt     DateTime @default(now()) 
+  createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   user          User     @relation(fields: [email], references: [email], onDelete: Cascade)
 }

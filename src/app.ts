@@ -3,6 +3,7 @@ import cors from "cors";
 import applicationRoutes from "./app/Routes";
 import router from "./app/Routes";
 import { GlobalErrorHandler } from "./app/Error/GlobalError";
+import { sendResponse } from "./app/Utils/sendResponse";
 const app: Application = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,4 +20,12 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use(GlobalErrorHandler);
+
+app.use((req: Request, res: Response, next: Function) => {
+  sendResponse(res, {
+    statusCode: 404,
+    success: false,
+    message: "Api Not Found",
+  });
+});
 export default app;
