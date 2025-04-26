@@ -4,9 +4,11 @@ import applicationRoutes from "./app/Routes";
 import router from "./app/Routes";
 import { GlobalErrorHandler } from "./app/Error/GlobalError";
 import { sendResponse } from "./app/Utils/sendResponse";
+import cookieParser from "cookie-parser";
 const app: Application = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(
   cors({
     origin: ["http://localhost:5000"],

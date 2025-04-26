@@ -2,10 +2,11 @@ import { Prisma, PrismaClient, UserStatus } from "@prisma/client";
 import { ADMIN_SEARCHABLE_FIELDS } from "./Admin.constants";
 import { StatusCodes } from "http-status-codes";
 import { CustomError } from "../../Error/CustomError";
+import { IAdminFilterRequest } from "./Admin.interface";
 
 const prisma = new PrismaClient();
 
-const getAllAdminFromDB = async (query: any, options: any) => {
+const getAllAdminFromDB = async (query: IAdminFilterRequest, options: any) => {
   // console.log("Service ", query);
   const { searchTerm, ...filterData } = query;
   console.log("Service ", options);
@@ -24,7 +25,7 @@ const getAllAdminFromDB = async (query: any, options: any) => {
     orConditions.push({
       AND: Object.keys(filterData).map((key) => ({
         [key]: {
-          equals: filterData[key],
+          equals: filterData[key as keyof typeof filterData],
         },
       })),
     });
@@ -59,6 +60,7 @@ const getSingleAdminFromDB = async (id: string) => {
   });
   return result;
 };
+
 const updateSingleAdminFromDB = async (
   id: string,
   data: Prisma.AdminUpdateInput
@@ -81,6 +83,7 @@ const updateSingleAdminFromDB = async (
 
   return result;
 };
+
 const deleteSingleAdminFromDB = async (id: string) => {
   const isExists = await prisma.admin.findUnique({
     where: {
@@ -108,6 +111,7 @@ const deleteSingleAdminFromDB = async (id: string) => {
 
   return result;
 };
+
 const softDeleteAdminFromDB = async (id: string) => {
   const isExists = await prisma.admin.findUnique({
     where: {
@@ -141,6 +145,8 @@ const softDeleteAdminFromDB = async (id: string) => {
 
   return result;
 };
+
+
 export const AdminServices = {
   getAllAdminFromDB,
   getSingleAdminFromDB,
