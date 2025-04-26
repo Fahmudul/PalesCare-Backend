@@ -2,17 +2,18 @@ import { StatusCodes } from "http-status-codes";
 import catchAsync from "../../Utils/catchAsync";
 import { sendResponse } from "../../Utils/sendResponse";
 import { pick } from "../../Utils/pick";
+import { ScheduleServices } from "./Schedule.Services";
 
-const softDeletePatient = catchAsync(async (req, res) => {
-  const result = await PatientServices.softDeletePatientFromDB(req.params.id);
+const createSchedule = catchAsync(async (req, res) => {
+  const result = await ScheduleServices.createSchedule(req.body);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
-    message: "Patient deleted successfullyy",
+    message: "Schedule created successfullyy",
     data: result,
   });
 });
 
-export const ScheduleController = {
- 
-};
+export const ScheduleController = { createSchedule };
+
+
