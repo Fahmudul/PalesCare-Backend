@@ -14,6 +14,27 @@ const createSchedule = catchAsync(async (req, res) => {
   });
 });
 
-export const ScheduleController = { createSchedule };
+const getAllSchedules = catchAsync(async (req, res) => {
+  const filters = pick(req.query, ["startDateTime", "endDateTime"]);
+  const options = pick(req.query, ["sortBy", "limit", "page", "sortOrder"]);
+  const result = await ScheduleServices.getAllSchedulesFromDB(
+    filters,
+    options,
+    req.user!
+  );
+  const { page, limit } = options;
+  const meta = {
+    page: Number(page) || 0,
+    limit: Number(limit) || 10,
+    total: result.length,
+  };
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Schedule fetched successfullyy",
+    meta,
+    data: result,
+  });
+});
 
-
+export const ScheduleController = { createSchedule, getAllSchedules };

@@ -22,17 +22,11 @@ const getAllPatient = catchAsync(async (req, res) => {
     limit: Number(options.limit) || 10,
     total: result.length,
   };
-  console.log({
-    success: true,
-    statusCode: StatusCodes.OK,
-    message: "Patients retrieved successfully",
-    meta,
-    data: result,
-  });
+
   sendResponse(res, {
     success: true,
     statusCode: StatusCodes.OK,
-    message: "Admin retrieved successfully",
+    message: "Patients retrieved successfully",
     meta,
     data: result,
   });

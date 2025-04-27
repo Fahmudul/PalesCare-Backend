@@ -141,7 +141,7 @@ model Schedule {
   endDate         DateTime
   createdAt       DateTime          @default(now())
   updatedAt       DateTime          @updatedAt
-  DoctorSchedules DoctorSchedules[]
+  DoctorSchedules DoctorSchedules[] 
 }
 
 model DoctorSchedules {
