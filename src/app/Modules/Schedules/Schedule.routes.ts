@@ -6,6 +6,16 @@ import { UserRole } from "@prisma/client";
 const router = Router();
 
 router.get("/", AuthGurd(UserRole.DOCTOR), ScheduleController.getAllSchedules);
+router.get(
+  "/:id",
+  AuthGurd(UserRole.DOCTOR),
+  ScheduleController.getScheduleById
+);
+router.delete(
+  "/:id",
+  AuthGurd(UserRole.DOCTOR),
+  ScheduleController.deleteSchedule
+);
 
 router.post(
   "/create-schedule",

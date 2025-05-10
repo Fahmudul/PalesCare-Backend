@@ -31,7 +31,7 @@ const loginUser = async (payload: { email: string; password: string }) => {
     email: isUserExists.email,
     role: isUserExists.role,
   };
-
+  console.log(tokenPayload, "tokenPayload");
   const accessToken = generateJWTToken(
     tokenPayload,
     Config.access_token_secret!,

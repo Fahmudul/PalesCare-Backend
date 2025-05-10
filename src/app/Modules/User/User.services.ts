@@ -96,13 +96,13 @@ const createPatient = async (payload: any, file: IFile): Promise<Patient> => {
     );
     payload.patient.profilePhoto = profilePhoto?.secure_url;
   }
-
+  console.log("payload", payload);
   const hashedPassword: string = await bcrypt.hash(payload.password, 12);
 
   const userData = {
     email: payload.patient.email,
     password: hashedPassword,
-    role: UserRole.DOCTOR,
+    role: UserRole.PATIENT,
   };
 
   const result = await prisma.$transaction(async (transactionClient) => {
@@ -113,7 +113,7 @@ const createPatient = async (payload: any, file: IFile): Promise<Patient> => {
     const createdDoctorData = await transactionClient.patient.create({
       data: payload.patient,
     });
-
+    console.log("patient created");
     return createdDoctorData;
   });
 

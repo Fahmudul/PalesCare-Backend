@@ -3,6 +3,8 @@ import { prisma } from "../../Shared/Prisma";
 import { Prisma } from "@prisma/client";
 import { CustomError } from "../../Error/CustomError";
 import { StatusCodes } from "http-status-codes";
+import { IPaginationOptions } from "../../Interfaces/pagination";
+import { paginationHelper } from "../../Utils/calculatePagination";
 const createDoctorSchedule = async (
   user: any,
   payload: {
@@ -120,8 +122,80 @@ const deleteDoctorSchedule = async (scheduleId: string, user: JwtPayload) => {
   return result;
 };
 
+const getMySchedulesFromDB = async (
+  filters: any,
+  options: IPaginationOptions,
+  user: JwtPayload
+) => {
+  const { limit, page, skip } = paginationHelper.calculatePagination(options);
+  const { startDateTime, endDateTime, ...filterData } = filters;
+  const isDoctorExists = await prisma.doctor.findUnique({
+    where: {
+      email: user.email,
+    },
+  });
+  if (!isDoctorExists) {
+    throw new CustomError(
+      StatusCodes.NOT_FOUND,
+      "Doctor not found with this email"
+    );
+  }
+  const andConditions: Prisma.DoctorSchedulesWhereInput[] = [];
+  if (startDateTime && endDateTime) {
+    andConditions.push({
+      AND: [
+        {
+          schedule: {
+            startDate: {
+              gte: startDateTime,
+            },
+          },
+        },
+        {
+          schedule: {
+            endDate: {
+              lte: endDateTime,
+            },
+          },
+        },
+      ],
+    });
+  }
+
+  if (filterData.isBooked) {
+    andConditions.push({
+      isBooked:
+        typeof filterData.isBooked === "string" &&
+        filterData.isBooked === "true"
+          ? true
+          : false,
+    });
+  }
+
+  const whereCondition: Prisma.DoctorSchedulesWhereInput =
+    andConditions.length > 0 ? { AND: andConditions } : {};
+
+  const result = await prisma.doctorSchedules.findMany({
+    where: {
+      doctorId: isDoctorExists.id,
+      ...whereCondition,
+    },
+    skip,
+    take: limit,
+    orderBy:
+      options.sortBy && options.sortOrder
+        ? {
+            [options.sortBy]: options.sortOrder,
+          }
+        : {},
+  });
+  // console.log(result, "result");
+  return result;
+};
+
 export const DoctorScheduleServices = {
   createDoctorSchedule,
   getAllDoctorSchedulesFromDB,
   deleteDoctorSchedule,
+  getMySchedulesFromDB,
 };

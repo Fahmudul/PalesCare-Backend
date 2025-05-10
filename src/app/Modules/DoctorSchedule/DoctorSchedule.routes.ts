@@ -10,6 +10,11 @@ router.get(
   AuthGurd(UserRole.DOCTOR),
   DoctorScheduleControllers.getAllSchedules
 );
+router.get(
+  "/:id",
+  AuthGurd(UserRole.DOCTOR),
+  DoctorScheduleControllers.getMyDoctorSchedule
+);
 router.post(
   "/create",
   AuthGurd(UserRole.DOCTOR),

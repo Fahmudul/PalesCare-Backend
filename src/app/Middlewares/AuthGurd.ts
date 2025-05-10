@@ -17,6 +17,7 @@ export const AuthGurd = (...roles: string[]) => {
         token as string,
         Config.access_token_secret!
       ) as JwtPayload;
+      console.log(verifiedToken);
       if (!verifiedToken) {
         throw new CustomError(StatusCodes.UNAUTHORIZED, "Unauthorized access");
       }

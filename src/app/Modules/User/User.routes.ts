@@ -25,7 +25,7 @@ router.get(
 );
 router.get(
   "/",
-  AuthGurd(UserRole.SUPER_ADMIN, UserRole.ADMIN),
+  // AuthGurd(UserRole.SUPER_ADMIN, UserRole.ADMIN),
   UserController.getAllUsers
 );
 
