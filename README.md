@@ -1,13 +1,3 @@
-Perfect! Here's the **updated and detailed PalesCare API documentation** including:
-
-* **Endpoints**
-* **Method**
-* **Headers**
-* **Input format (Request)**
-* **Output format (Response)**
-* ✅ Notes on Authentication (custom token without `Bearer`)
-
----
 
 # 📘 **PalesCare API Documentation**
 
