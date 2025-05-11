@@ -1,0 +1,1592 @@
+{
+	"info": {
+		"_postman_id": "fd6ef4b1-660e-42d5-bac5-b5bf41c4247e",
+		"name": "PalesCare",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43564593",
+		"_collection_link": "https://alpha7-4517.postman.co/workspace/90bf89b1-2dec-48b6-871f-7281130ed86c/collection/43564593-fd6ef4b1-660e-42d5-bac5-b5bf41c4247e?action=share&source=collection_link&creator=43564593"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create-Admin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhaG11ZHVsNzg5MEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDUzMjA3MzEsImV4cCI6MTc0NTQwNzEzMX0.72HMB7xvabH91VM7shdpkpZ3pxsMqE0DFTVdt4411lk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/fahmu/Pictures/Screenshots/heart.png"
+								},
+								{
+									"key": "data",
+									"value": "{\n    \"password\":\"12345678\",\n    \"admin\":{\n        \"name\":\"Siam Gond\",\n        \"email\":\"silu@gmail.com\",\n        \"contactNumber\":\"0123456789\"\n    }\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}user/create-admin",
+							"host": [
+								"{{PalesCareURL}}user"
+							],
+							"path": [
+								"create-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create-Doctor",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhaG11ZHVsNzg5MEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDUzMjA3MzEsImV4cCI6MTc0NTQwNzEzMX0.72HMB7xvabH91VM7shdpkpZ3pxsMqE0DFTVdt4411lk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data",
+									"value": "{\n  \"password\": \"StrongPass123!\",\n  \"doctor\": {\n    \"name\": \"Dr. Leena Mahmoud\",\n    \"email\": \"leena.mahmoud@palescare.com\",\n    \"contactNumber\": \"+970599123456\",\n    \"address\": \"Al-Quds Street, Ramallah, Palestine\",\n    \"registrationNumber\": \"PMDC-789456\",\n    \"experience\": 8,\n    \"gender\": \"FEMALE\",\n    \"appointmentFee\": 150,\n    \"qualification\": \"MBBS, FCPS (Medicine)\",\n    \"currentWorkingPlace\": \"Al-Shifa Medical Center\",\n    \"designation\": \"Senior Consultant\"\n  }\n}\n",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/fahmu/Pictures/Screenshots/doctor.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}user/create-doctor",
+							"host": [
+								"{{PalesCareURL}}user"
+							],
+							"path": [
+								"create-doctor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create-Patient",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhaG11ZHVsNzg5MEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDUzMjA3MzEsImV4cCI6MTc0NTQwNzEzMX0.72HMB7xvabH91VM7shdpkpZ3pxsMqE0DFTVdt4411lk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data",
+									"value": "{\n  \"password\": \"Patient123!\",\n  \"patient\": {\n    \"email\": \"hassan.rashid@gmail.com\",\n    \"name\": \"Hassan Rashid\",\n    \"contactNumber\": \"+970597654321\",\n    \"address\": \"Gaza City, Palestine\"\n  }\n}\n",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/fahmu/Pictures/Screenshots/images.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}user/create-patient",
+							"host": [
+								"{{PalesCareURL}}user"
+							],
+							"path": [
+								"create-patient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhaG11ZHVsNzg5MEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDUzMjA3MzEsImV4cCI6MTc0NTQwNzEzMX0.72HMB7xvabH91VM7shdpkpZ3pxsMqE0DFTVdt4411lk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"BLOCKED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}user/cae789ad-2823-4ece-8867-42230c4879bc/status",
+							"host": [
+								"{{PalesCareURL}}user"
+							],
+							"path": [
+								"cae789ad-2823-4ece-8867-42230c4879bc",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"123456\",\r\n    \"admin\":{\r\n        \"name\":\"Hasib Gond\",\r\n        \"email\":\"hasub@gmail.com\",\r\n        \"contactNumber\":\"0123456789\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}user/",
+							"host": [
+								"{{PalesCareURL}}user"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "searchTerm",
+									"value": "r",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "fahmudul@gmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Me Profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}user/me",
+							"host": [
+								"{{PalesCareURL}}user"
+							],
+							"path": [
+								"me"
+							],
+							"query": [
+								{
+									"key": "searchTerm",
+									"value": "r",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update My Profile",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlZW5hLm1haG1vdWRAcGFsZXNjYXJlLmNvbSIsInJvbGUiOiJET0NUT1IiLCJpYXQiOjE3NDU0OTA3NDgsImV4cCI6MTc0NTU3NzE0OH0.GZ29-cy1YyfynOtDEz3945KvLiZ7RYglIAa9irTZNsM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/fahmu/Pictures/Screenshots/Screenshot 2025-04-03 154943.png",
+									"disabled": true
+								},
+								{
+									"key": "data",
+									"value": "{ \"contactNumber\":\"+970599123333\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}user/update-my-profile",
+							"host": [
+								"{{PalesCareURL}}user"
+							],
+							"path": [
+								"update-my-profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Get All Admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}admin",
+							"host": [
+								"{{PalesCareURL}}admin"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "searchTerm",
+									"value": "gon",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}admin/da1ebc43-cb13-44a9-a683-19c47d5d1726",
+							"host": [
+								"{{PalesCareURL}}admin"
+							],
+							"path": [
+								"da1ebc43-cb13-44a9-a683-19c47d5d1726"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update admin by Id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n        \"name\": \"Fahmudul am\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}admin/26105756-54fb-4593-b090-702fd143a9br",
+							"host": [
+								"{{PalesCareURL}}admin"
+							],
+							"path": [
+								"26105756-54fb-4593-b090-702fd143a9br"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete admin by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}admin/ccca6aa5-ce50-4945-be53-2ee00dea6be8",
+							"host": [
+								"{{PalesCareURL}}admin"
+							],
+							"path": [
+								"ccca6aa5-ce50-4945-be53-2ee00dea6be8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}admin/remove/26105756-54fb-4593-b090-702fd143a9be",
+							"host": [
+								"{{PalesCareURL}}admin"
+							],
+							"path": [
+								"remove",
+								"26105756-54fb-4593-b090-702fd143a9be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Not found route",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}admin/reve/26105756-54fb-4593-b090-702fd143a9be",
+							"host": [
+								"{{PalesCareURL}}admin"
+							],
+							"path": [
+								"reve",
+								"26105756-54fb-4593-b090-702fd143a9be"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "Get All Doctor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PalesCareURL}}doctor/",
+							"host": [
+								"{{PalesCareURL}}doctor"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "searchTerm",
+									"value": "gon",
+									"disabled": true
+								},
+								{
+									"key": "specialties",
+									"value": "Heart Sergon",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Doctor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCare}}doctor/0f766cdd-d9be-4131-8b62-5cdaa0cb8a69",
+							"host": [
+								"{{PalesCare}}doctor"
+							],
+							"path": [
+								"0f766cdd-d9be-4131-8b62-5cdaa0cb8a69"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Doctor by Id",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlZW5hLm1haG1vdWRAcGFsZXNjYXJlLmNvbSIsInJvbGUiOiJET0NUT1IiLCJpYXQiOjE3NDU1NTE0NjIsImV4cCI6MTc0NTYzNzg2Mn0.5DaahzHMvQI3VcL9uptJfQ2vkk8Pov8_tiNCXp4BDgI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"specialties\": [\r\n        {\r\n            \"specialtiesId\": \"bc1de921-cea1-4848-897b-ba492c6c8a57\",\r\n            \"isDeleted\": true\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}doctor/0f766cdd-d9be-4131-8b62-5cdaa0cb8a69",
+							"host": [
+								"{{PalesCareURL}}doctor"
+							],
+							"path": [
+								"0f766cdd-d9be-4131-8b62-5cdaa0cb8a69"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Doctor by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}doctor/25837b37-9d02-4a86-a65c-462c173e42a2",
+							"host": [
+								"{{PalesCareURL}}doctor"
+							],
+							"path": [
+								"25837b37-9d02-4a86-a65c-462c173e42a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}doctor/remove/0f766cdd-d9be-4131-8b62-5cdaa0cb8a69",
+							"host": [
+								"{{PalesCareURL}}doctor"
+							],
+							"path": [
+								"remove",
+								"0f766cdd-d9be-4131-8b62-5cdaa0cb8a69"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "Get All Patient",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PalesCareURL}}patient",
+							"host": [
+								"{{PalesCareURL}}patient"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "searchTerm",
+									"value": "gon",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCare}}patient/25837b37-9d02-4a86-a65c-462c173e42a2",
+							"host": [
+								"{{PalesCare}}patient"
+							],
+							"path": [
+								"25837b37-9d02-4a86-a65c-462c173e42a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Patient by Id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"PatientHealthData\": {\r\n        \"gender\": \"MALE\",\r\n        \"dateOfBirth\": \"1995-04-20T00:00:00.000Z\",\r\n        \"bloodGroup\": \"O_POSITIVE\",\r\n        \"hasAllergies\": true,\r\n        \"hasDiabetes\": false,\r\n        \"height\": \"175 cm\",\r\n        \"weight\": \"70 kg\",\r\n        \"smokingStatus\": false,\r\n        \"dietaryPreferences\": \"Vegetarian\",\r\n        \"pregnancyStatus\": false,\r\n        \"mentalHealthHistory\": \"Mild anxiety in past\",\r\n        \"immunizationStatus\": \"Up to date\",\r\n        \"hasPastSurgeries\": true,\r\n        \"recentAnxiety\": false,\r\n        \"recentDepression\": false,\r\n        \"maritalStatus\": \"MARRIED\"\r\n    },\r\n    \"MedicalReport\": [\r\n        {\r\n            \"reportName\": \"Blood Test Report\",\r\n            \"reportLink\": \"https://example.com/reports/blood-test-2024.pdf\"\r\n        },\r\n        {\r\n            \"reportName\": \"X-Ray Scan\",\r\n            \"reportLink\": \"https://example.com/reports/chest-xray.png\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}patient/25837b37-9d02-4a86-a65c-462c173e42a2",
+							"host": [
+								"{{PalesCareURL}}patient"
+							],
+							"path": [
+								"25837b37-9d02-4a86-a65c-462c173e42a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Patient by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}patient/ccca6aa5-ce50-4945-be53-2ee00dea6be8",
+							"host": [
+								"{{PalesCareURL}}patient"
+							],
+							"path": [
+								"ccca6aa5-ce50-4945-be53-2ee00dea6be8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}patient/soft/ccca6aa5-ce50-4945-be53-2ee00dea6be8",
+							"host": [
+								"{{PalesCareURL}}patient"
+							],
+							"path": [
+								"soft",
+								"ccca6aa5-ce50-4945-be53-2ee00dea6be8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"email\":\"superadmin@localhost\",\r\n    \"password\":\"superadmin!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}auth/login",
+							"host": [
+								"{{PalesCareURL}}auth"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}auth/refresh-token",
+							"host": [
+								"{{PalesCareURL}}auth"
+							],
+							"path": [
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"siam@gmail.com\",\r\n    \"oldPassword\": \"123456\",\r\n    \"newPassword\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}auth/change-password",
+							"host": [
+								"{{PalesCareURL}}auth"
+							],
+							"path": [
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"fahmudul7890@gmail.com\",\r\n    \"newPassword\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}auth/forgot-password",
+							"host": [
+								"{{PalesCareURL}}auth"
+							],
+							"path": [
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhaG11ZHVsNzg5MEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDUyMTA2OTcsImV4cCI6MTc0NTIxMDk5N30.Ek15A2fl1o4zhWQ8BfgI18zCH1MwNq4f-GZQVlK7WOk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"957c059c-dad8-4e0b-bd9f-68651a9d4893\",\r\n    \"newPassword\":\"1234456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}auth/reset-password",
+							"host": [
+								"{{PalesCareURL}}auth"
+							],
+							"path": [
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Specialities",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/G:/Programming-World/Level_2/Mission 07 Be A Prisma Pro/Images/sp4.png"
+								},
+								{
+									"key": "data",
+									"value": "{ \"title\":\"Kidney Sergon\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}speciality/create-speciality",
+							"host": [
+								"{{PalesCareURL}}speciality"
+							],
+							"path": [
+								"create-speciality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Specialities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}speciality",
+							"host": [
+								"{{PalesCareURL}}speciality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Specialty",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}speciality/bc1de921-cea1-4848-897b-ba492c6c8a5",
+							"host": [
+								"{{PalesCareURL}}speciality"
+							],
+							"path": [
+								"bc1de921-cea1-4848-897b-ba492c6c8a5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Schedule",
+			"item": [
+				{
+					"name": "Create Schedule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\": \"2025-04-27\",\r\n    \"endDate\": \"2025-04-28\",\r\n    \"startTime\": \"09:30\",\r\n    \"endTime\": \"15:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}schedule/create-schedule",
+							"host": [
+								"{{PalesCareURL}}schedule"
+							],
+							"path": [
+								"create-schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Schedule",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{DOCTOR_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PalesCareURL}}schedule/",
+							"host": [
+								"{{PalesCareURL}}schedule"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "startDateTime",
+									"value": "2025-04-27T09:30:00.000Z",
+									"disabled": true
+								},
+								{
+									"key": "endDateTime",
+									"value": "2025-04-27T12:30:00.000Z",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Schedule",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}schedule/",
+							"host": [
+								"{{PalesCareURL}}schedule"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Schedule By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{DOCTOR_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PalesCareURL}}schedule/8e059a55-e623-438f-8071-a76b48081791",
+							"host": [
+								"{{PalesCareURL}}schedule"
+							],
+							"path": [
+								"8e059a55-e623-438f-8071-a76b48081791"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctor Schedule",
+			"item": [
+				{
+					"name": "Get All Doctor Schedule",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{DOCTOR_TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "isBooked",
+								"value": "true",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{PalesCareURL}}doctor-schedule",
+							"host": [
+								"{{PalesCareURL}}doctor-schedule"
+							],
+							"query": [
+								{
+									"key": "isBooked",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Doctor Schedule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{DOCTOR_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scheduleIds\": [\r\n        \"0f2ff531-071c-4ffe-8ad7-c10faa4be500\",\r\n        \"19aa3578-3660-4422-98ee-623f790bb44c\",\r\n        \"23a86af3-03d7-4a7e-9cbc-2c44944c9b5d\",\r\n        \"7e200698-52e1-4c97-9d28-deb8c6738862\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}doctor-schedule/create",
+							"host": [
+								"{{PalesCareURL}}doctor-schedule"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Doctor Schedule",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}doctor-schedule/0f766cdd-d9be-4131-8b62-5cdaa0cb8a69",
+							"host": [
+								"{{PalesCareURL}}doctor-schedule"
+							],
+							"path": [
+								"0f766cdd-d9be-4131-8b62-5cdaa0cb8a69"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Schedule",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{DOCTOR_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PalesCareURL}}doctor-schedule/0f766cdd-d9be-4131-8b62-5cdaa0cb8a69?isBooked=false&limit=2&page=1",
+							"host": [
+								"{{PalesCareURL}}doctor-schedule"
+							],
+							"path": [
+								"0f766cdd-d9be-4131-8b62-5cdaa0cb8a69"
+							],
+							"query": [
+								{
+									"key": "isBooked",
+									"value": "false"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Appointment",
+			"item": [
+				{
+					"name": "Get All Appointment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{PATIENT_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PalesCareURL}}appointment/my-appointment?status=ONGOING&paymentStatus=UNPAID",
+							"host": [
+								"{{PalesCareURL}}appointment"
+							],
+							"path": [
+								"my-appointment"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "ONGOING"
+								},
+								{
+									"key": "paymentStatus",
+									"value": "UNPAID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Appointment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{PATIENT_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"doctorId\": \"0f766cdd-d9be-4131-8b62-5cdaa0cb8a69\",\r\n    \"scheduleId\": \"7e200698-52e1-4c97-9d28-deb8c6738862\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}appointment/create-appointment",
+							"host": [
+								"{{PalesCareURL}}appointment"
+							],
+							"path": [
+								"create-appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Appointment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}doctor-schedule/0f766cdd-d9be-4131-8b62-5cdaa0cb8a69?status=ONGOING&paymentStatus=UNPAID",
+							"host": [
+								"{{PalesCareURL}}doctor-schedule"
+							],
+							"path": [
+								"0f766cdd-d9be-4131-8b62-5cdaa0cb8a69"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "ONGOING"
+								},
+								{
+									"key": "paymentStatus",
+									"value": "UNPAID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{DOCTOR_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"INPROGRESS\"\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}appointment/status/1e3d6672-eca7-43e6-a288-fa0be0f59bd7",
+							"host": [
+								"{{PalesCareURL}}appointment"
+							],
+							"path": [
+								"status",
+								"1e3d6672-eca7-43e6-a288-fa0be0f59bd7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Appointment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hallo\":\"hallo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}appointment/",
+							"host": [
+								"{{PalesCareURL}}appointment"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Initialize Payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}payment/init-payment/0918f080-7bbc-4e3b-a612-dbe913748d7a",
+							"host": [
+								"{{PalesCareURL}}payment"
+							],
+							"path": [
+								"init-payment",
+								"0918f080-7bbc-4e3b-a612-dbe913748d7a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Payment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PalesCareURL}}payment/ipn?amount=1150.00&bank_tran_id=151114130739MqCBNx5&card_brand=VISA&card_issuer=BRAC+BANK%2C+LTD.&card_issuer_country=Bangladesh&card_issuer_country_code=BD&card_no=432149XXXXXX0667&card_type=VISA-Brac+bank¤cy=BDT&status=VALID&store_amount=1104.00&store_id=progr6606bdd704623&tran_date=2015-11-14+13%3A07%3A12&tran_id=e8349951-63ee-416b-a941-2d77e7d8f376&val_id=151114130742Bj94IBUk4uE5GRj&verify_sign=490d86b8ac5faa016f695b60972a7fac&verify_key=amount%2Cbank_tran_id%2Ccard_brand%2Ccard_issuer%2Ccard_issuer_country%2Ccard_issuer_country_code%2Ccard_no%2Ccard_type%2Ccurrency%2Cstatus%2Cstore_amount%2Cstore_id%2Ctran_date%2Ctran_id%2Cval_id",
+							"host": [
+								"{{PalesCareURL}}payment"
+							],
+							"path": [
+								"ipn"
+							],
+							"query": [
+								{
+									"key": "amount",
+									"value": "1150.00"
+								},
+								{
+									"key": "bank_tran_id",
+									"value": "151114130739MqCBNx5"
+								},
+								{
+									"key": "card_brand",
+									"value": "VISA"
+								},
+								{
+									"key": "card_issuer",
+									"value": "BRAC+BANK%2C+LTD."
+								},
+								{
+									"key": "card_issuer_country",
+									"value": "Bangladesh"
+								},
+								{
+									"key": "card_issuer_country_code",
+									"value": "BD"
+								},
+								{
+									"key": "card_no",
+									"value": "432149XXXXXX0667"
+								},
+								{
+									"key": "card_type",
+									"value": "VISA-Brac+bank¤cy=BDT"
+								},
+								{
+									"key": "status",
+									"value": "VALID"
+								},
+								{
+									"key": "store_amount",
+									"value": "1104.00"
+								},
+								{
+									"key": "store_id",
+									"value": "progr6606bdd704623"
+								},
+								{
+									"key": "tran_date",
+									"value": "2015-11-14+13%3A07%3A12"
+								},
+								{
+									"key": "tran_id",
+									"value": "e8349951-63ee-416b-a941-2d77e7d8f376"
+								},
+								{
+									"key": "val_id",
+									"value": "151114130742Bj94IBUk4uE5GRj"
+								},
+								{
+									"key": "verify_sign",
+									"value": "490d86b8ac5faa016f695b60972a7fac"
+								},
+								{
+									"key": "verify_key",
+									"value": "amount%2Cbank_tran_id%2Ccard_brand%2Ccard_issuer%2Ccard_issuer_country%2Ccard_issuer_country_code%2Ccard_no%2Ccard_type%2Ccurrency%2Cstatus%2Cstore_amount%2Cstore_id%2Ctran_date%2Ctran_id%2Cval_id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prescription",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{DOCTOR_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"appointmentId\":\"0918f080-7bbc-4e3b-a612-dbe913748d7a\",\r\n    \"instructions\":\"<p>Zilas</p> <p>1+1+0 (7 days)</p>\",\r\n    \"followUpDate\":\"2025-06-10T03:07:59.853Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}prescription/create",
+							"host": [
+								"{{PalesCareURL}}prescription"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Give Review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{PATIENT_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"appointmentId\": \"0918f080-7bbc-4e3b-a612-dbe913748d7a\",\r\n    \"rating\": 3.5,\r\n    \"comment\": \"This doctor is good\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}review",
+							"host": [
+								"{{PalesCareURL}}review"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Meta",
+			"item": [
+				{
+					"name": "Fetch Dashboard Meta Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{SUPER_ADMIN_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/fahmu/Pictures/Screenshots/heart.png"
+								},
+								{
+									"key": "data",
+									"value": "{\n    \"password\":\"12345678\",\n    \"admin\":{\n        \"name\":\"Siam Gond\",\n        \"email\":\"silu@gmail.com\",\n        \"contactNumber\":\"0123456789\"\n    }\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{PalesCareURL}}meta",
+							"host": [
+								"{{PalesCareURL}}meta"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "PalesCareURL",
+			"value": "http://localhost:5000/api/v1/",
+			"type": "string"
+		},
+		{
+			"key": "ADMIN_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbHVAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzQ2OTMwMTE0LCJleHAiOjE3NDcwMTY1MTR9.bWoUioTOq2gzM7qM05SPNgN7I0-f9j2Rd-yysywEQXE",
+			"type": "string"
+		},
+		{
+			"key": "DOCTOR_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlZW5hLm1haG1vdWRAcGFsZXNjYXJlLmNvbSIsInJvbGUiOiJET0NUT1IiLCJpYXQiOjE3NDY5MzAzNzIsImV4cCI6MTc0NzAxNjc3Mn0.03l8fY2XgVf08b_T1AIf4vBTYoz_cltHoMtpff8bc_M",
+			"type": "string"
+		},
+		{
+			"key": "PATIENT_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhhc3Nhbi5yYXNoaWRAZ21haWwuY29tIiwicm9sZSI6IlBBVElFTlQiLCJpYXQiOjE3NDY5MzQxMzQsImV4cCI6MTc0NzAyMDUzNH0.OI4TxITqkkXx6_IulagvblqYC8bY5Ur24C6imWFEvoA",
+			"type": "string"
+		},
+		{
+			"key": "SUPER_ADMIN_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1cGVyYWRtaW5AbG9jYWxob3N0Iiwicm9sZSI6IlNVUEVSX0FETUlOIiwiaWF0IjoxNzQ2OTQ1Mjg2LCJleHAiOjE3NDcwMzE2ODZ9.9u80h62miJ49axVKXLBF1l1MyPXcEpNZeKQvjoFZk4c",
+			"type": "string"
+		}
+	]
+}
