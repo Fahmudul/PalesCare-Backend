@@ -4,7 +4,10 @@ import { sendResponse } from "../../Utils/sendResponse";
 import { PrescriptionServices } from "./Prescription.services";
 
 const createPrescription = catchAsync(async (req, res) => {
-  const result = await PrescriptionServices.createPrescriptionInDB(req.body);
+  const result = await PrescriptionServices.createPrescriptionInDB(
+    req.body,
+    req.user!
+  );
 
   sendResponse(res, {
     success: true,

@@ -215,7 +215,7 @@ const cancelUnpaidAppointments = async () => {
           in: appointmentIDsToCancel,
         },
       },
-    }); 
+    });
 
     for (const unpaidAppointment of unpaidAppointments) {
       await tx.doctorSchedules.updateMany({
@@ -227,8 +227,7 @@ const cancelUnpaidAppointments = async () => {
           isBooked: false,
         },
       });
-    } 
-    console.log("updated")
+    }
   });
 };
 export const AppointmentServices = {
